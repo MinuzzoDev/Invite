@@ -1,11 +1,11 @@
 :root {
-  --primary: #fff;
-  --bg-envelope-color: #f5edd1;
-  --envelope-tab: #ecdeb8;
-  --envelope-cover: #e6cfa7;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --txt-color: #444;
-  --heart-color: rgb(252, 8, 231);
+  --primary: #fff; /* Cor branca para o fundo da carta */
+  --bg-envelope-color: #f5edd1; /* Cor clara para o envelope */
+  --envelope-tab: #ecdeb8; /* Cor da aba do envelope */
+  --envelope-cover: #e6cfa7; /* Cor da capa do envelope */
+  --shadow-color: rgba(0, 0, 0, 0.2); /* Sombra suave */
+  --txt-color: #444; /* Cor do texto */
+  --heart-color: rgb(252, 8, 231); /* Cor do coração */
 }
 
 /* Estilos para o vídeo de fundo */
@@ -55,7 +55,7 @@ body {
 }
 
 .envelope-wrapper {
-  background: var(--bg-envelope-color);
+  background: var(--bg-envelope-color); /* Cor clara para o envelope */
   box-shadow: 0 0 40px var(--shadow-color);
   position: relative;
   width: 100%;
@@ -76,7 +76,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--envelope-tab);
+  background: var(--envelope-tab); /* Cor da aba do envelope */
   clip-path: polygon(0 0, 100% 0, 50% 50%);
   transform-origin: top;
   transition: transform 0.5s ease-in-out;
@@ -89,7 +89,7 @@ body {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: var(--primary);
+  background: var(--primary); /* Cor branca para o fundo da carta */
   padding: 20px;
   box-shadow: 0 0 5px var(--shadow-color);
   z-index: 1;
@@ -180,7 +180,7 @@ button:hover {
 }
 
 #imagem img {
-  max-width: 100%; /* A imagem ocupa 100% da largura do contêiner */
+  max-width: 50%; /* A imagem ocupa 100% da largura do contêiner */
   height: auto; /* Mantém a proporção da imagem */
   border-radius: 10px;
   box-shadow: 0 0 10px var(--shadow-color);
