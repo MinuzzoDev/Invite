@@ -1,0 +1,206 @@
+:root {
+  --primary: #fff;
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(252, 8, 231);
+}
+
+/* Estilos para o vídeo de fundo */
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo cubra toda a tela */
+  z-index: -2; /* Coloca o vídeo atrás de todo o conteúdo */
+}
+
+/* Camada escura sobre o vídeo */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+  z-index: -1; /* Fica acima do vídeo, mas atrás do conteúdo */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow: hidden; /* Para evitar barras de rolagem */
+  position: relative;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Garante que o conteúdo fique acima do vídeo e da camada escura */
+}
+
+.envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+  position: relative;
+  width: 300px;
+  height: 230px;
+  margin-bottom: 20px; /* Espaço entre o envelope e a imagem */
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--envelope-tab);
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: var(--primary);
+  padding: 20px;
+  box-shadow: 0 0 5px var(--shadow-color);
+  z-index: 1;
+  opacity: 0; /* Carta inicialmente invisível */
+  transition: opacity 0.5s ease-in-out 0.5s; /* Aparece após o envelope abrir */
+}
+
+.letter .text {
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 14px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6f61;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff3b2f;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 3;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -7.5px;
+}
+
+.heart:after {
+  right: 7.5px;
+}
+
+/* Quando o envelope estiver aberto */
+.envelope-open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-open .letter {
+  opacity: 1; /* Mostra a carta */
+}
+
+.envelope-open .heart {
+  display: none; /* Oculta o coração */
+}
+
+.hidden {
+  display: none;
+}
+
+#imagem {
+  margin-top: 20px; /* Espaço entre o envelope e a imagem */
+  text-align: center;
+}
+
+#imagem img {
+  max-width: 50%; /* Reduz a largura da imagem para 50% do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .envelope-wrapper {
+    width: 90%; /* Ajusta a largura do envelope para 90% da tela */
+    max-width: 300px; /* Define uma largura máxima */
+    height: auto; /* Altura automática */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+  .letter .text {
+    font-size: 12px; /* Reduz o tamanho da fonte para telas menores */
+  }
+
+  #imagem img {
+    max-width: 80%; /* Aumenta a largura da imagem para telas menores */
+  }
+
+  button {
+    padding: 8px 16px; /* Reduz o padding dos botões */
+    font-size: 14px; /* Reduz o tamanho da fonte dos botões */
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Romântico</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop id="video-background" preload="auto">
+        <source src="videoplayback.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <!-- Camada escura sobre o vídeo -->
+    <div id="overlay"></div>
+
+    <!-- Música de fundo -->
+    <audio autoplay loop id="background-music">
+        <source src="bad.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="flap"></div> <!-- Aba do envelope -->
+                <div class="letter"> <!-- Carta dentro do envelope -->
+                    <div class="text">
+                        <strong>DIDIIII</strong>
+                        <p>
+                            Aceita um cinema no sabádo comigo??🐈
+                        </p>
+                        <div class="buttons">
+                            <button id="sim">Sim</button>
+                            <button id="nao">Não</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div> <!-- Coração para abrir o envelope -->
+        </div>
+
+        <!-- Imagem romântica (inicialmente oculta) -->
+        <div id="imagem" class="hidden">
+            <img src="ft.png" alt="Imagem Romântica">
+            <p style="font-weight: bold; color: white;">SHOW SHOW SHOW SHOW</p>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
